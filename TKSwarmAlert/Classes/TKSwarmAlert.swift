@@ -13,7 +13,7 @@ public typealias Closure=()->Void
 open class TKSwarmAlert: NSObject {
     
     open var durationOfPreventingTapBackgroundArea: TimeInterval = 0
-    open var didDissmissAllViews: Closure?
+    @objc open var didDissmissAllViews: Closure?
     
     open var fadeOutDuration: TimeInterval = 0.2
     
@@ -21,7 +21,17 @@ open class TKSwarmAlert: NSObject {
     var animationView: FallingAnimationView?
     var blurView: TKSWBackgroundView?
     
-    open var type: TKSWBackgroundType = .blur
+    var type: TKSWBackgroundType!
+    
+    public override init() {
+        super.init()
+        self.type = .blur
+    }
+    
+    public init(backgroundType: TKSWBackgroundType = .blur) {
+        super.init()
+        self.type = backgroundType
+    }
     
     open func addNextViews(_ views:[UIView]) {
         self.animationView?.nextViewsList.append(views)
@@ -32,11 +42,11 @@ open class TKSwarmAlert: NSObject {
         self.staticViews.append(view)
     }
     
-    open func hide(){
+    @objc public func hide(){
         self.animationView?.onTapSuperView()
     }
     
-    open func show(_ views:[UIView]) {
+    @objc public func show(_ views:[UIView]) {
         let window:UIWindow? = UIApplication.shared.keyWindow
         if window != nil {
             let frame:CGRect = window!.bounds
@@ -87,7 +97,7 @@ open class TKSwarmAlert: NSObject {
         }
     }
     
-    open func spawn(_ views:[UIView]) {
+    @objc public func spawn(_ views:[UIView]) {
         self.animationView?.spawn(views: views)
     }
 }
