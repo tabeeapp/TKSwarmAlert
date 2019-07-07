@@ -8,13 +8,9 @@
 
 import UIKit
 
-public typealias Closure=()->Void
-
 open class TKSwarmAlert: NSObject {
     
     open var durationOfPreventingTapBackgroundArea: TimeInterval = 0
-    @objc open var didDissmissAllViews: Closure?
-    
     open var fadeOutDuration: TimeInterval = 0.2
     
     fileprivate var staticViews: [UIView] = []
@@ -46,7 +42,7 @@ open class TKSwarmAlert: NSObject {
         self.animationView?.onTapSuperView()
     }
     
-    @objc public func show(_ views:[UIView]) {
+    @objc public func show(_ views:[UIView], completion: (() -> Void)? = nil) {
         let window:UIWindow? = UIApplication.shared.keyWindow
         if window != nil {
             let frame:CGRect = window!.bounds
@@ -89,10 +85,12 @@ open class TKSwarmAlert: NSObject {
             animationView?.didDissmissAllViews = {
                 self.blurView?.removeFromSuperview()
                 self.animationView?.removeFromSuperview()
+                
                 for staticView in self.staticViews {
                     staticView.alpha = 1
                 }
-                self.didDissmissAllViews?()
+                
+                completion?()
             }
         }
     }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1058293B1DC1DB2E003A63B0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1058293A1DC1DB2E003A63B0 /* Default-568h@2x.png */; };
 		B00FB0591C0C0D810085EEF5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00FB04A1C0C0D810085EEF5 /* Images.xcassets */; };
 		B00FB0661C0C0E300085EEF5 /* TKSwarmAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B00FB0651C0C0E300085EEF5 /* TKSwarmAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B00FB06A1C0C0E300085EEF5 /* TKSwarmAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00FB0631C0C0E300085EEF5 /* TKSwarmAlert.framework */; };
@@ -25,6 +24,7 @@
 		B00FB07B1C0C0E910085EEF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FB04E1C0C0D810085EEF5 /* ViewController.swift */; };
 		B00FB07D1C0C0F0C0085EEF5 /* someExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00FB07C1C0C0F0C0085EEF5 /* someExtensions.swift */; };
 		B0EF79DE1C0C12EF0087E857 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00FB0461C0C0D810085EEF5 /* LaunchScreen.xib */; };
+		D5417F7D22D2AAE60077307B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5417F7C22D2AAE60077307B /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1058293A1DC1DB2E003A63B0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B00FB0261C0C0D470085EEF5 /* TKSwarmAlertExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKSwarmAlertExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00FB03C1C0C0D810085EEF5 /* BrightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightView.swift; sourceTree = "<group>"; };
 		B00FB03D1C0C0D810085EEF5 /* FallingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallingAnimationView.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		B00FB0651C0C0E300085EEF5 /* TKSwarmAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKSwarmAlert.h; sourceTree = "<group>"; };
 		B00FB0671C0C0E300085EEF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B00FB07C1C0C0F0C0085EEF5 /* someExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = someExtensions.swift; sourceTree = "<group>"; };
+		D5417F7C22D2AAE60077307B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 		B00FB01D1C0C0D470085EEF5 = {
 			isa = PBXGroup;
 			children = (
-				1058293A1DC1DB2E003A63B0 /* Default-568h@2x.png */,
+				D5417F7C22D2AAE60077307B /* Default-568h@2x.png */,
 				B00FB0281C0C0D470085EEF5 /* TKSwarmAlertExample */,
 				B00FB0641C0C0E300085EEF5 /* TKSwarmAlert */,
 				B00FB0271C0C0D470085EEF5 /* Products */,
@@ -230,7 +230,7 @@
 				TargetAttributes = {
 					B00FB0251C0C0D470085EEF5 = {
 						CreatedOnToolsVersion = 7.1.1;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 1020;
 					};
 					B00FB0621C0C0E300085EEF5 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -264,7 +264,7 @@
 			files = (
 				B0EF79DE1C0C12EF0087E857 /* LaunchScreen.xib in Resources */,
 				B00FB0591C0C0D810085EEF5 /* Images.xcassets in Resources */,
-				1058293B1DC1DB2E003A63B0 /* Default-568h@2x.png in Resources */,
+				D5417F7D22D2AAE60077307B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +443,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twitter.tk-365.TKSwarmAlertExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -458,7 +458,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twitter.tk-365.TKSwarmAlertExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -478,8 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twitter.tk-365.TKSwarmAlert";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -501,8 +500,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twitter.tk-365.TKSwarmAlert";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

@@ -39,6 +39,8 @@ import UIKit
 /* Usage
  
  */
+public typealias Closure=()->Void
+
 
 class FallingAnimationView: UIView {
     

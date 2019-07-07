@@ -38,11 +38,9 @@ class SimpleViewController: UIViewController {
             alert.durationOfPreventingTapBackgroundArea = 3
 
             alert.addSubStaticView(staticView)
-            alert.show([fallView])
-            
-            alert.didDissmissAllViews = {
-                print("didDissmissAllViews")
-            }
+            alert.show([fallView], completion: {
+                
+            })
         }
     }
 }
