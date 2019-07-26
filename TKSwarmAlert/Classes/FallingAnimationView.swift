@@ -276,7 +276,7 @@ class FallingAnimationView: UIView {
                 else {
                     for v in views {
                         if v.superview != nil {
-                            if v.frame.top >= (v.superview!.bounds.bottom - self!.fieldMargin) {
+                            if v.frame.top * 2 >= (v.superview!.bounds.bottom - self!.fieldMargin) {
                                 v.removeFromSuperview()
                             }
                             else if v.frame.right <= (v.superview!.bounds.left + self!.fieldMargin) {
