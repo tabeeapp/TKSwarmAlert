@@ -208,11 +208,12 @@ class FallingAnimationView: UIView {
                     spawnNextViews()
                 }
                 else {// fall
+                    self.animator.removeAllBehaviors()
                     // velocity
                     let pushBehavior = UIPushBehavior(items: [gestureView], mode: UIPushBehavior.Mode.instantaneous)
                     let velocity: CGPoint = gesture.velocity(in: gestureView.superview)
                     // not sure if I can really just convert it to CGVector though
-                    pushBehavior.pushDirection = CGVector(dx: (velocity.x / 900), dy: (velocity.y / 900))
+                    pushBehavior.pushDirection = CGVector(dx: (velocity.x / 900), dy: (velocity.y / UIScreen.main.bounds.height))
                     self.animator.addBehavior(pushBehavior)
                     
                     disableDragGesture()
@@ -278,16 +279,16 @@ class FallingAnimationView: UIView {
                         guard let superView = v.superview else {
                             continue
                         }
-                        
-                        var heightInsets: CGFloat
-                        
-                        if #available(iOS 11.0, *) {
-                            heightInsets = superView.safeAreaInsets.top + superView.safeAreaInsets.bottom
-                        } else {
-                            heightInsets = 0
-                        }
-                                                
-                        if v.frame.top + heightInsets >= (superView.bounds.bottom - self!.fieldMargin) {
+//                        
+//                        var heightInsets: CGFloat
+//                        
+//                        if #available(iOS 11.0, *) {
+//                            heightInsets = superView.safeAreaInsets.top + superView.safeAreaInsets.bottom
+//                        } else {
+//                            heightInsets = 0
+//                        }
+//                        
+                        if v.frame.top >= (superView.bounds.bottom - self!.fieldMargin) {
                             v.removeFromSuperview()
                         }
                         else if v.frame.right <= (superView.bounds.left + self!.fieldMargin) {
