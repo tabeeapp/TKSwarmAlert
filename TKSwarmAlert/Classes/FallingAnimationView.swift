@@ -275,17 +275,29 @@ class FallingAnimationView: UIView {
                 }
                 else {
                     for v in views {
-                        if v.superview != nil {
-                            if v.frame.top * 2 >= (v.superview!.bounds.bottom - self!.fieldMargin) {
-                                v.removeFromSuperview()
-                            }
-                            else if v.frame.right <= (v.superview!.bounds.left + self!.fieldMargin) {
-                                v.removeFromSuperview()
-                            }
-                            else if v.frame.left >= (v.superview!.bounds.right - self!.fieldMargin) {
-                                v.removeFromSuperview()
-                            }
+                        guard let superView = v.superview else {
+                            continue
                         }
+                        
+                        var heightInsets: CGFloat
+                        
+                        if #available(iOS 11.0, *) {
+                            heightInsets = superView.safeAreaInsets.top + superView.safeAreaInsets.bottom
+                        } else {
+                            heightInsets = 0
+                        }
+                                                
+                        if v.frame.top + heightInsets >= (superView.bounds.bottom - self!.fieldMargin) {
+                            v.removeFromSuperview()
+                        }
+                        else if v.frame.right <= (superView.bounds.left + self!.fieldMargin) {
+                            v.removeFromSuperview()
+                        }
+                        else if v.frame.left >= (superView.bounds.right - self!.fieldMargin) {
+                            v.removeFromSuperview()
+                        }
+
+                        
                     }
                 }
             }
