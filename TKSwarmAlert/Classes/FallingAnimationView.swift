@@ -171,7 +171,47 @@ class FallingAnimationView: UIView {
     
     
     @objc func didDrag(gesture: UIPanGestureRecognizer) {
-        onTapSuperView()
+        let gestureView = gesture.view!
+        if gesture.state == UIGestureRecognizer.State.began {
+            self.animator.removeAllBehaviors()
+            collisionAll()
+            snapAll()
+            fallAndRemove(views: unCurrentAnimationViews)
+            // drag start
+            let gripPoint: CGPoint = gesture.location(in: gestureView)
+            let offsetFromCenter: UIOffset = UIOffset.init(
+                horizontal: gripPoint.x - gestureView.bounds.size.width  / 2.0,
+                vertical: gripPoint.y - gestureView.bounds.size.height / 2.0
+            )
+            let anchorPoint: CGPoint = gesture.location(in: gestureView.superview)
+            attachmentBehavior = UIAttachmentBehavior(item: gestureView, offsetFromCenter: offsetFromCenter, attachedToAnchor: anchorPoint)
+            self.animator.addBehavior(attachmentBehavior!)
+        }
+        else if gesture.state == UIGestureRecognizer.State.changed {
+            // drag move
+            let touchPoint: CGPoint = gesture.location(in: gestureView.superview)
+            attachmentBehavior?.anchorPoint = touchPoint
+        }
+        else if gesture.state == UIGestureRecognizer.State.ended {
+            disableTapGesture()
+            self.animator.removeAllBehaviors()
+            collisionAll()
+            // judge if fall
+            let touchPoint: CGPoint = gesture.location(in: gestureView.superview)
+            let movedDistance = distance(from: startPoints[gestureView.tag], to: touchPoint)
+            if movedDistance < snapBackDistance {// not fall
+                let snap = UISnapBehavior(item: gestureView, snapTo: startPoints[gestureView.tag])
+                self.animator.addBehavior(snap)
+            }
+            else {
+                if nextViewsList.count != 0 {//next
+                    spawnNextViews()
+                }
+                else {// fall
+                    onTapSuperView()
+                }
+            }
+        }
     }
     
     @objc func onTapSuperView() {
